@@ -1,0 +1,34 @@
+P -> int main ( ) { stmts }
+stmts -> stmt stmts
+stmts -> EPSILON
+stmt -> assnstmt
+stmt -> ifstmt
+stmt -> loopstmt
+stmt -> decstmt 
+decstmt -> int id ;
+decstmt -> float id ;
+decstmt -> string id strl ;
+strl -> EPSILON
+strl -> = stringlit
+assnstmt -> id = exp ;
+ifstmt -> if ( condstmt ) { stmts } elsestmt
+elsestmt -> EPSILON
+elsestmt -> else { stmts }
+loopstmt -> while ( condstmt ) { stmts }
+condstmt -> exp condop exp condstmt'
+condstmt -> ! condstmt condstmt'
+condop -> <
+condop -> >
+condop -> ~
+exp -> term expop
+exp -> ( exp )
+expop -> EPSILON
+expop -> + exp
+expop -> - exp
+expop -> / exp
+expop -> % exp
+expop -> * exp
+term -> id
+term -> intlit
+term -> floatlit
+condstmt' -> EPSILON
